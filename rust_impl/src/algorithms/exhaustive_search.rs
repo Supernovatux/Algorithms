@@ -1,22 +1,22 @@
-use crate::utils::linspace;
-
 pub fn exhaustive_search(func: fn(f64) -> f64, a: f64, b: f64, err: f64) -> f64 {
-    // Lets do 1000 devs per iter and find maximum
-    let mut current_err = f64::MAX;
+    // recursively do till the error is less than the given error
+    let mut max_y = f64::MIN;
+    let mut max_x = f64::MIN;
+    let step = (b - a) / 1000.0;
     let mut x = a;
-    let mut y = b;
-    while current_err < err {
-        current_err = (x - y).abs() / 1000f64;
-        let mut max_x = x;
-        for i in linspace(x, y, 1000) {
-            if func(i) > func(max_x) {
-                max_x = i;
-            }
+    while x <= b {
+        let y = func(x);
+        if y > max_y {
+            max_y = y;
+            max_x = x;
         }
-        x = max_x - current_err;
-        y = x + current_err;
+        x += step;
     }
-    return x;
+    if step < err {
+        max_x
+    } else {
+        exhaustive_search(func, max_x - step, max_x + step, err)
+    }
 }
 
 #[cfg(test)]

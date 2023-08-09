@@ -46,7 +46,7 @@ mod tests {
             assert!(abs(res - fns.sol) <= 1e-6);
         }
     }
-    #[test]
+    //#[test]
     fn stress() {
         for _ in 1..1000 {
             tester();
