@@ -1,3 +1,6 @@
+use cached::proc_macro::cached;
+
+#[cached]
 pub fn lucas(n: usize) -> usize {
     if n == 0 {
         2

@@ -11,7 +11,7 @@ pub struct Algorithms {
 }
 impl Algorithms {}
 // Array of all Algorithms
-pub const ALGORITHMS: [Algorithms; 4] = [
+pub const ALGORITHMS: [Algorithms; 5] = [
     Algorithms {
         name: "Exhaustive Search",
         func: exhaustive_search::exhaustive_search,
@@ -27,5 +27,9 @@ pub const ALGORITHMS: [Algorithms; 4] = [
     Algorithms {
         name: "Golder ratio Search",
         func: fibbonacci_search::golder_search,
+    },
+    Algorithms {
+        name: "Fibonacci Search",
+        func: fibbonacci_search::fibbonacci_search,
     },
 ];
