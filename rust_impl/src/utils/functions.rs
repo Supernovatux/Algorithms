@@ -5,26 +5,26 @@ pub fn downparabola(x: f64) -> f64 {
 }
 pub fn cosx(x: f64) -> f64 {
     //-1,1
-    return x.cos();
+    x.cos()
 }
 pub fn exp_sqr(x: f64) -> f64 {
     //-2,2
-    return (-x * x).exp();
+    (-x * x).exp()
 }
 pub fn sinc(x: f64) -> f64 {
     //0.5,1.4
     //0.819675
-    return (3.0 * PI * x).sin() / x;
+    (3.0 * PI * x).sin() / x
 }
 pub fn xthroot(x: f64) -> f64 {
     //0,10
     //e
-    return x.powf(1.0 / x);
+    x.powf(1.0 / x)
 }
 pub fn mxthpower(x: f64) -> f64 {
     //0,10
     //1/e
-    return x.powf(-x);
+    x.powf(-x)
 }
 pub struct TestFunction {
     pub f: fn(f64) -> f64,
@@ -35,7 +35,7 @@ pub struct TestFunction {
 }
 impl TestFunction {
     pub fn solve(&self, x: f64) -> f64 {
-        return (self.f)(x);
+        (self.f)(x)
     }
 }
 // A function vec to iterate over

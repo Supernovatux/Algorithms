@@ -23,7 +23,6 @@ pub fn exhaustive_search(func: fn(f64) -> f64, a: f64, b: f64, err: f64) -> f64 
 mod tests {
     use super::*;
     use crate::utils::functions::TEST_FUNCTIONS;
-    use num::abs;
     #[test]
     fn tester() {
         for fns in TEST_FUNCTIONS {

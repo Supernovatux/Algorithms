@@ -1,3 +1,4 @@
+pub mod series;
 pub fn linspace(start: f64, stop: f64, num: usize) -> Vec<f64> {
     let mut v = Vec::new();
     let step = (stop - start) / (num - 1) as f64;
