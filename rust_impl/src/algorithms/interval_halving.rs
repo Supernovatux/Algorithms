@@ -1,4 +1,4 @@
-fn interval_halving(f: fn(f64) -> f64, a: f64, b: f64, err: f64) -> f64 {
+pub fn interval_halving(f: fn(f64) -> f64, a: f64, b: f64, err: f64) -> f64 {
     let mut a = a;
     let mut b = b;
     while (b - a) / 2.0 > err {
@@ -23,14 +23,14 @@ fn interval_halving(f: fn(f64) -> f64, a: f64, b: f64, err: f64) -> f64 {
             b = x2;
         }
     }
-    return (a + b) / 2.0;
+    (a + b) / 2.0
 }
 
 fn max(err_1: f64, err_2: f64) -> f64 {
     if err_1 > err_2 {
-        return err_1;
+        err_1
     } else {
-        return err_2;
+        err_2
     }
 }
 #[cfg(test)]

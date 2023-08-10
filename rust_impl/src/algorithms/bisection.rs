@@ -2,7 +2,7 @@ use num::signum;
 
 use crate::utils::differentiate;
 
-fn do_bisection(f: fn(f64) -> f64, a: f64, b: f64, err: f64) -> f64 {
+pub fn bisection_search(f: fn(f64) -> f64, a: f64, b: f64, err: f64) -> f64 {
     let mut a = a;
     let mut b = b;
     let mut c = (a + b) / 2.0;
@@ -23,11 +23,10 @@ fn do_bisection(f: fn(f64) -> f64, a: f64, b: f64, err: f64) -> f64 {
 mod tests {
     use super::*;
     use crate::utils::functions::TEST_FUNCTIONS;
-    use num::abs;
     #[test]
     fn tester() {
         for fns in TEST_FUNCTIONS {
-            let res = do_bisection(fns.f, fns.a, fns.b, 1e-7);
+            let res = bisection_search(fns.f, fns.a, fns.b, 1e-7);
             println!("Result: {}", res);
             //assert!(abs(res - fns.sol) <= 1e-6);
         }
